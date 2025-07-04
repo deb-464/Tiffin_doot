@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiffinDoot - Homemade→Healthy→Trust→On Time.</title>
+    <link rel="icon" type="image/png" href="logo/title_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2ecc71;
+            --secondary: #f39c12;
+            --dark: #34495e;
+            --light: #ecf0f1;
+            --danger: #e74c3c;
+            --border-radius: 10px;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        .bg-light {
+            background-color: var(--light);
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--dark);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e67e22;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            height: 100px; /* Increased height to accommodate larger logo */
+        }
+
+        .logo img {
+            max-height: 130px; /* Updated logo size as requested */
+            max-width: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 130px; /* Adjusted for taller header */
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Weekly Menu Section */
+        .weekly-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .menu-box {
+            background: #c00606;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .menu-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-box .info-box {
+            padding: 1rem;
+            text-align: center;
+            background: #f9f9f9;
+        }
+
+        .menu-box h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            border-bottom: 2px solid black;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .menu-box p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        .menu-box .cost {
+            font-weight: 600;
+            color: red;
+        }
+
+        /* How It Works Section */
+        #how-it-works {
+            padding: 0;
+            width: 100%;
+            min-height: 60vh;
+        }
+
+        .full-page-image-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .full-page-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Meal Plans Section */
+        .plans {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .plan {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 320px;
+            transition: var(--transition);
+        }
+
+        .plan:hover {
+            transform: translateY(-5px);
+        }
+
+        .plan-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .plan-price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .plan-price span {
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        .plan-body {
+            padding: 15px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features li i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f0f5f7;
+            padding: 30px 15px;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        .slide-group {
+            display: flex;
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 15px;
+            min-width: 250px;
+            max-width: 250px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 200px;
+            overflow-wrap: break-word;
+        }
+
+        .quote {
+            border-left: 4px solid #b2f2bb;
+            padding-left: 10px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .quote::before, .quote::after {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: #000;
+            display: inline-block;
+        }
+
+        .quote::before {
+            content: "‘‘";
+            margin-right: 5px;
+        }
+
+        .quote::after {
+            content: "’’";
+            margin-left: 5px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .user-info strong {
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        .user-info span {
+            font-size: 0.8rem;
+            color: gray;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #000;
+            z-index: 10;
+            transition: color 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            color: var(--primary);
+        }
+
+        .nav-left {
+            left: 5px;
+        }
+
+        .nav-right {
+            right: 5px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .contact-details li i {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-right: 10px;
+            width: 25px;
+            text-align: center;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.8rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .weekly-menu {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .menu-box img {
+                height: 180px;
+            }
+
+            .plan {
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 130px; /* Adjusted for taller header */
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 130px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+
+            .logo img {
+                max-height: 90px; /* Reduced logo size for mobile */
+                max-width: none;
+            }
+
+            .hero {
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px;
+            }
+
+            .weekly-menu {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .menu-box img {
+                height: 150px;
+            }
+
+            .menu-box h3 {
+                font-size: 1.1rem;
+            }
+
+            .menu-box p {
+                font-size: 0.85rem;
+            }
+
+            .card {
+                min-width: 200px;
+                max-width: 200px;
+                height: 180px;
+            }
+
+            .quote {
+                font-size: 0.85rem;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .whatsapp-float {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 30px 0;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.85rem;
+            }
+
+            .weekly-menu {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-box {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .menu-box img {
+                height: 140px;
+            }
+
+            .menu-box h3 {
+                font-size: 1rem;
+            }
+
+            .menu-box p {
+                font-size: 0.8rem;
+            }
+
+            .card {
+                min-width: 100%;
+                max-width: 100%;
+                height: auto;
+                padding: 12px;
+            }
+
+            .quote {
+                font-size: 0.8rem;
+            }
+
+            .user-info img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .user-info strong {
+                font-size: 0.85rem;
+            }
+
+            .user-info span {
+                font-size: 0.75rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.85rem;
+                padding: 8px;
+            }
+
+            .footer-column {
+                min-width: 100%;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .logo img {
+                max-height: 70px; /* Further reduced for very small screens */
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="#home">
+                        <img src="h_logo.png" alt="header logo">
+                    </a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#weekly-menu">Weekly Menu</a></li>
+                    <li><a href="#plans">Meal Plans</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Healthy Homemade Meals Delivered to Your Desk</h1>
+                <p>Subscribe to weekly tiffin plans with balanced, calorie-counted, and delicious meals prepared with love.</p>
+                <div class="hero-btns">
+                    <a href="#plans" class="btn">Order Now</a>
+                    <a href="#contact" class="btn btn-secondary">Try a Free Sample</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+        <div class="full-page-image-container">
+            <img src="mainone.png" alt="How It Works Roadmap" class="full-page-image">
+        </div>
+    </section>
+
+    <!-- Weekly Menu Section -->
+    <section id="weekly-menu" class="bg-light">
+        <div class="container">
+            <h2>Our Weekly Menu</h2>
+            <div class="weekly-menu">
+                <div class="menu-box">
+                    <picture>
+                        <source srcset="food plate/1.webp" type="image/webp">
+                        <img src="1.png" alt="Fried Rice with Chicken" loading="lazy">
+                    </picture>
+                    <div class="info-box">
+                        <h3>Sunday</h3>
+                        <p>Rice(300g)+</p>
+                        <p>Chili Chicken(100g)+</p>
+                        <p>Masoor Dal(50g)+</p>
+                        <p>Cucumber Salad(50g)</p>
+                        <p class="cost">Cost: 115 BDT</p>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <picture>
+                        <source srcset="food plate/2.webp" type="image/webp">
+                        <img src="2.png" alt="Chicken Curry with Rice" loading="lazy">
+                    </picture>
+                    <div class="info-box">
+                        <h3>Monday</h3>
+                        <p>Khichuri(250g)+</p>
+                        <p>Beguni(2 slices)+</p>
+                        <p>Boiled Egg(1egg)+</p>
+                        <p>Salad(50g)</p>
+                        <p class="cost">Cost: 100 BDT</p>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <picture>
+                        <source srcset="food plate/3.webp" type="image/webp">
+                        <img src="3.png" alt="Beef Steak" loading="lazy">
+                    </picture>
+                    <div class="info-box">
+                        <h3>Tuesday</h3>
+                        <p>Rice(300g)+</p>
+                        <p>Cholar Dal(50g)+</p>
+                        <p>Tilapia Curry(100g)</p>
+                        <p>Tomato Chutney(50g)</p>
+                        <p class="cost">Cost: 130 BDT</p>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <picture>
+                        <source srcset="food plate/4.webp" type="image/webp">
+                        <img src="4.png" alt="Fish Fry" loading="lazy">
+                    </picture>
+                    <div class="info-box">
+                        <h3>Wednesday</h3>
+                        <p>Fried Rice(300g)+</p>
+                        <p>Chili Chicken(100g)+</p>
+                        <p>Tomato Chutney(50g)</p>
+                        <p>Salad(50g)</p>
+                        <p class="cost">Cost: 130 BDT</p>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <picture>
+                        <source srcset="food plate/5.webp" type="image/webp">
+                        <img src="5.png" alt="Lamb Roast" loading="lazy">
+                    </picture>
+                    <div class="info-box">
+                        <h3>Thursday</h3>
+                        <p>Rice(300g)+</p>
+                        <p>Moong Dal(50g)+</p>
+                        <p>Egg Curry(1 egg)+</p>
+                        <p>Alu-Gegun Bhaji(100g)</p>
+                        <p class="cost">Cost: 105 BDT</p>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <picture>
+                        <source srcset="food plate/6.webp" type="image/webp">
+                        <img src="6.png" alt="Vegetable Stir-fry" loading="lazy">
+                    </picture>
+                    <div class="info-box">
+                        <h3>
+                            <span style="font-weight: bold;">Friday</span>
+                            <span style="font-size: 0.75em;">(Bachelor Special)</span>
+                        </h3>
+                        <p>Khichuri(300g)+</p>
+                        <p>Chicken Rezala(100g)+</p>
+                        <p>Salad(50g)+</p>
+                        <p>Sweet(1 sweet)</p>
+                        <p class="cost">Cost: 125 BDT</p>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <picture>
+                        <source srcset="food plate/7.webp" type="image/webp">
+                        <img src="7.png" alt="Pasta" loading="lazy">
+                    </picture>
+                    <div class="info-box">
+                        <h3>Saturday</h3>
+                        <p>Polao(250g)+</p>
+                        <p>Egg Curry(1 egg)+</p>
+                        <p>Veg Jhol(100g)</p>
+                        <p class="cost">Cost: 110 BDT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meal Plans Section -->
+    <section id="plans" class="bg-light">
+        <div class="container">
+            <h2 class="text-center">Our Meal Plans</h2>
+            <div class="plans">
+                <div class="plan">
+                    <div class="plan-header">
+                        <h3>Single Day</h3>
+                        <div class="plan-price">Daily Plan</div>
+                    </div>
+                    <div class="plan-body">
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Today's Menu</li>
+                            <li><i class="fas fa-check"></i> Pay per meal</li>
+                            <li><i class="fas fa-times" style="color: var(--danger);"></i> Delivery charge extra</li>
+                            <li><i class="fas fa-times" style="color: var(--danger);"></i> No discounts</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary" style="width: 100%;">Order Now</a>
+                    </div>
+                </div>
+                <div class="plan">
+                    <div class="plan-header" style="background-color: var(--secondary);">
+                        <h3>Weekly</h3>
+                        <div class="plan-price">800 BDT</div>
+                    </div>
+                    <div class="plan-body">
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Full weekly menu</li>
+                            <li><i class="fas fa-check"></i> 10% discount</li>
+                            <li><i class="fas fa-times" style="color: var(--danger);"></i> Delivery charge extra</li>
+                            <li><i class="fas fa-check"></i> Free weekly dessert</li>
+                        </ul>
+                        <a href="#contact" class="btn" style="width: 100%; background-color: var(--secondary);">Order Now</a>
+                    </div>
+                </div>
+                <div class="plan">
+                    <div class="plan-header">
+                        <h3>Monthly</h3>
+                        <div class="plan-price">2000 BDT</div>
+                    </div>
+                    <div class="plan-body">
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Weekly menu repeated</li>
+                            <li><i class="fas fa-check"></i> 20% discount</li>
+                            <li><i class="fas fa-check"></i> Free delivery</li>
+                            <li><i class="fas fa-check"></i> Weekly dessert + drink</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary" style="width: 100%;">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="text-center">What Our Customers Say</h2>
+            <div class="slider-container">
+                <button class="nav-btn nav-left" onclick="scrollSlide(-1)">❮</button>
+                <div class="slider-wrapper" id="sliderWrapper">
+                    <div class="slide-group">
+                        <div class="card">
+                            <p class="quote">Great food, always fresh and delicious. Love it!</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=1" alt="Sarah">
+                                <div><strong>Sarah</strong><span>Gulshan</span></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="quote">Fast delivery and tasty meals every single time.</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=2" alt="Arif">
+                                <div><strong>Arif</strong><span>Banani</span></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="quote">Healthy, affordable, and super convenient service.</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=3" alt="Ruma">
+                                <div><strong>Ruma</strong><span>Dhanmondi</span></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="quote">Perfect portion sizes for my daily lunch needs.</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=4" alt="Tanvir">
+                                <div><strong>Tanvir</strong><span>Mirpur</span></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="quote">Highly recommend for quality and customer care.</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=5" alt="Rafiq">
+                                <div><strong>Rafiq</strong><span>Uttara</span></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="quote">The food is fresh, tasty, and always delivered on time. Perfect for busy people who care about health.</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=6" alt="Sumaiya">
+                                <div><strong>Sumaiya</strong><span>Mohakhali</span></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="quote">I’m impressed by the service. Meals are packed well and taste like home. I’ve ordered multiple times already.</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=7" alt="Farhana">
+                                <div><strong>Farhana</strong><span>Bashundhara</span></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="quote">One of the best decisions I made. Quality food, timely delivery, and affordable pricing — just perfect!</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=8" alt="Mahmud">
+                                <div><strong>Mahmud</strong><span>Tejgaon</span></div>
+                            </div>
+                        </div>
+                        <!-- Duplicate cards for infinite loop -->
+                        <div class="card">
+                            <p class="quote">The portion size is ideal. I stay full without feeling heavy. Great for lunch during hectic office hours.</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=1" alt="Sarah">
+                                <div><strong>Sarah</strong><span>Gulshan</span></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <p class="quote">It’s hard to find healthy food that tastes this good. I look forward to every delivery from this service.</p>
+                            <div class="user-info">
+                                <img src="https://i.pravatar.cc/50?img=2" alt="Arif">
+                                <div><strong>Arif</strong><span>Banani</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-btn nav-right" onclick="scrollSlide(1)">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="text-center">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Old Chandgaon, Chittagong, Bangladesh</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+880 1711 123456</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@tiffindoot.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Daily: 8:00 AM - 10:00 PM</span>
+                        </li>
+                    </ul>
+                    <h3 style="margin-top: 20px;">Delivery Areas</h3>
+                    <p><strong>Currently serving: Only Chittagong City.</strong></p>
+                    <p>More areas coming soon!</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TiffinDoot</h3>
+                    <p>Delivering healthy, homemade meals to your doorstep since 2023. Our mission is to make nutritious eating convenient and affordable.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#weekly-menu">Weekly Menu</a></li>
+                        <li><a href="#plans">Meal Plans</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Meal Plans</h3>
+                    <ul class="footer-links">
+                        <li><a href="#plans">Daily Plan</a></li>
+                        <li><a href="#plans">Weekly Plan</a></li>
+                        <li><a href="#plans">Monthly Plan</a></li>
+                        <li><a href="#plans">Custom Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new meal options and special offers.</p>
+                    <form id="newsletterForm" style="margin-top: 15px;">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email Address" required>
+                        </div>
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 TiffinDoot. All Rights Reserved. | Designed with ❤️ for healthy living</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/8801711123456" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 130, // Adjusted for taller header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+
+        // Testimonials Slider
+        let scrollPosition = 0;
+        const wrapper = document.getElementById("sliderWrapper");
+        const totalWidth = wrapper.scrollWidth / 2;
+
+        function scrollSlide(direction) {
+            wrapper.style.animation = 'none';
+            wrapper.style.transition = 'transform 0.5s ease';
+            const cardWidth = document.querySelector(".card").offsetWidth + 15;
+            scrollPosition += direction * cardWidth;
+
+            if (scrollPosition <= -totalWidth) {
+                scrollPosition = 0;
+                wrapper.style.transition = 'none';
+                wrapper.style.transform = `translateX(${scrollPosition}px)`;
+                setTimeout(() => {
+                    wrapper.style.transition = 'transform 0.5s ease';
+                }, 0);
+            } else if (scrollPosition > 0) {
+                scrollPosition = -totalWidth;
+                wrapper.style.transition = 'none';
+                wrapper.style.transform = `translateX(${scrollPosition}px)`;
+                setTimeout(() => {
+                    wrapper.style.transition = 'transform 0.5s ease';
+                }, 0);
+            } else {
+                wrapper.style.transform = `translateX(${scrollPosition}px)`;
+            }
+
+            setTimeout(() => {
+                wrapper.style.transition = 'none';
+                wrapper.style.animation = 'scroll 40s linear infinite';
+                wrapper.style.transform = `translateX(${scrollPosition}px)`;
+            }, 500);
+        }
+    </script>
+</body>
+</html>
